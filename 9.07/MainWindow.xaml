@@ -7,6 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <ListBox Name="CharactersListBox" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="760">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Image Source="{Binding Image}" Width="50" Height="50" Margin="5"/>
+                        <StackPanel Orientation="Vertical" Margin="5">
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="16"/>
+                            <TextBlock Text="{Binding Status}" FontStyle="Italic"/>
+                            <TextBlock Text="{Binding Species}"/>
+                            <TextBlock Text="{Binding Gender}"/>
+                            <TextBlock Text="Origin: {Binding Origin.Name}"/>
+                            <TextBlock Text="Location: {Binding Location.Name}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
+
 </Window>
