@@ -7,6 +7,36 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
 
+        <ListBox Name="CharactersListBox" 
+                 HorizontalAlignment="Left" 
+                 VerticalAlignment="Stretch" 
+                 SelectionChanged="CharactersListBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Image Source="{Binding Image}" Width="50" Height="50" Margin="5"/>
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="16" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Name="DetailsPanel" 
+                    Grid.Column="1" 
+                    Margin="10" 
+                    DataContext="{Binding SelectedCharacter}">
+            <Image Name="CharacterImage" Width="200" Height="200" Margin="10"/>
+            <TextBlock Name="CharacterName" FontWeight="Bold" FontSize="20" Margin="5"/>
+            <TextBlock Name="CharacterStatus" Margin="5"/>
+            <TextBlock Name="CharacterSpecies" Margin="5"/>
+            <TextBlock Name="CharacterGender" Margin="5"/>
+            <TextBlock Name="CharacterOrigin" Margin="5"/>
+            <TextBlock Name="CharacterLocation" Margin="5"/>
+        </StackPanel>
     </Grid>
 </Window>
